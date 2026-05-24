@@ -1,22 +1,22 @@
-using HyperLethal.Ammo;
 using HyperLethal.Utilities;
 using SPTarkov.DI.Annotations;
+using System.Reflection;
+using WTTServerCommonLib;
 
 namespace HyperLethal.Services;
 
 [Injectable]
 public sealed class HyperLethalBootstrapService(
-    HyperLethalValidationService validationService,
-    HyperLethalAmmoFactory ammoFactory)
+    WTTServerCommonLib.WTTServerCommonLib wttCommon)
 {
-    public Task Initialize()
+    public async Task Initialize()
     {
         HyperLethalLog.Info("Init", "Starting mod initialization.");
 
-        validationService.ValidateBuiltInData(HyperLethalAmmoDefinitions.All);
-        ammoFactory.RegisterAll(HyperLethalAmmoDefinitions.All);
+        var assembly = Assembly.GetExecutingAssembly();
+        await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly, Path.Join("db", "items"));
+        await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, Path.Join("db", "CustomAssortSchemes"));
 
-        HyperLethalLog.Success("Init", "Initialization complete.");
-        return Task.CompletedTask;
+        HyperLethalLog.LoadedSuccessfully();
     }
 }

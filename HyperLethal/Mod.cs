@@ -6,7 +6,6 @@ using SPTarkov.Server.Core.Services.Mod;
 
 namespace HyperLethal;
 
-#pragma warning disable CS8765
 public record ModMetadata : AbstractModMetadata
 {
     public override string ModGuid { get; init; } = "com.darihon.hyperlethal";
@@ -19,12 +18,14 @@ public record ModMetadata : AbstractModMetadata
 
     public override string Url { get; init; } = "";
     public override List<string> Contributors { get; init; } = [];
-    public override Dictionary<string, SemanticVersioning.Range> ModDependencies { get; init; } = [];
+    public override Dictionary<string, SemanticVersioning.Range> ModDependencies { get; init; } = new()
+    {
+        { "com.wtt.commonlib", new SemanticVersioning.Range("~2.0.0") }
+    };
     public override List<string> Incompatibilities { get; init; } = [];
 }
-#pragma warning restore CS8765
 
-[Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 1)]
+[Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 2)]
 public class HyperLethal(
     HyperLethalBootstrapService bootstrapService
 ) : IOnLoad
