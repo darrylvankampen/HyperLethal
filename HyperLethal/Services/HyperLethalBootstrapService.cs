@@ -15,7 +15,7 @@ public sealed class HyperLethalBootstrapService(
 
         var assembly = Assembly.GetExecutingAssembly();
         await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly, Path.Join("db", "items"));
-        await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, Path.Join("db", "CustomAssortSchemes"));
+        await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, Path.Join("db", "assorts"));
 
         HyperLethalLog.LoadedSuccessfully();
     }
