@@ -4,10 +4,8 @@ HyperLethal is an SPT mod that adds overpowered items. At this moment mostly foc
 
 ## Features
 
-- Registers "overpowered" ammo by cloning exisiting templates
-- Applies custom stats (damage, pen, etc..)
-- Can inject these items into traders (currently Peacekeeper)
-- Includes a bare bone validation system
+- Uses [WTT-CommonLib](https://github.com/WelcomeToTarkov/WTT-CommonLib/) to create new custom items
+- Config can be done in /db/
 
 ## Requirements
 - SPT 4.0.0+
