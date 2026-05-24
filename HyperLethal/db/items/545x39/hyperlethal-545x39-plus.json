@@ -1,0 +1,34 @@
+{
+  "660000000000000000000004": {
+    "itemTplToClone": "56dfef82d2720bbd668b4567",
+    "parentId": "5485a8684bdc2da71d8b4567",
+    "handbookParentId": "5b47574386f77428ca22b33b",
+    "overrideProperties": {
+      "ammoCaliber": "Caliber545x39",
+      "Caliber": "Caliber545x39",
+      "Damage": 244,
+      "PenetrationPower": 99,
+      "ArmorDamage": 96,
+      "FragmentationChance": 0.94,
+      "InitialSpeed": 1540
+    },
+    "locales": {
+      "en": {
+        "name": "HyperLethal 5.45x39+",
+        "shortName": "HL-545+",
+        "description": "A screaming 5.45x39 round built to punch through armor like it owes you money."
+      }
+    },
+    "fleaPriceRoubles": 1700,
+    "handbookPriceRoubles": 1700,
+    "addtoStaticAmmo": true,
+    "staticAmmoProbability": 5,
+    "staticLootContainers": [
+      {
+        "containerName": "LOOTCONTAINER_DEAD_SCAV",
+        "probability": 10
+      }
+    ],
+    "addCaliberToAllCloneLocations": true
+  }
+}
