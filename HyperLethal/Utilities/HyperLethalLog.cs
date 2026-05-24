@@ -15,6 +15,7 @@ public static class HyperLethalLog
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(line);
+        Console.WriteLine("HyperLethal config available on https://127.0.0.1:6969/hyperlethal");
         Console.ForegroundColor = previousColor;
     }
 

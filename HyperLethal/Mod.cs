@@ -11,7 +11,7 @@ public record ModMetadata : AbstractModMetadata
     public override string ModGuid { get; init; } = "com.darihon.hyperlethal";
     public override string Name { get; init; } = "HyperLethal";
     public override string Author { get; init; } = "Darihon";
-    public override SemanticVersioning.Version Version { get; init; } = new("1.0.0");
+    public override SemanticVersioning.Version Version { get; init; } = new("0.1.0-beta1");
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override string License { get; init; } = "MIT";
     public override bool? IsBundleMod { get; init; } = false;
