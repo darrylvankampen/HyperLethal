@@ -2,14 +2,25 @@ using HyperLethal.Utilities;
 using SPTarkov.DI.Annotations;
 using System.Reflection;
 using System.Text.Json;
+using SPTarkov.Server.Core.Helpers;
+using SPTarkov.Server.Core.Models.Eft.Common.Tables;
+using SPTarkov.Server.Core.Models.Eft.ItemEvent;
+using SPTarkov.Server.Core.Models.Spt.Config;
+using SPTarkov.Server.Core.Routers;
+using SPTarkov.Server.Core.Servers;
+using SPTarkov.Server.Core.Utils;
 using WTTServerCommonLib;
+using Path = System.IO.Path;
 
 namespace HyperLethal.Services;
 
 [Injectable]
 public sealed class HyperLethalBootstrapService(
-    WTTServerCommonLib.WTTServerCommonLib wttCommon)
+    WTTServerCommonLib.WTTServerCommonLib wttCommon, ModHelper modHelper, ImageRouter imageRouter, ConfigServer configServer, TimeUtil timeUtil, HyperLethalTraderService hyperLethalTraderService)
 {
+    private readonly TraderConfig _traderConfig = configServer.GetConfig<TraderConfig>();
+    private readonly RagfairConfig _ragfairConfig = configServer.GetConfig<RagfairConfig>();
+    
     public async Task Initialize()
     {
         HyperLethalLog.Info("Init", "Starting mod initialization.");
@@ -17,12 +28,15 @@ public sealed class HyperLethalBootstrapService(
         var assembly = Assembly.GetExecutingAssembly();
         var itemsPath = Path.Join("db", "items");
         var assortsPath = Path.Join("db", "assorts");
+        var tradersPath = modHelper.GetAbsolutePathToModFolder(assembly);
         var version = new ModMetadata().Version.ToString();
         var loadedItems = CountTopLevelEntries(assembly, itemsPath);
         var loadedAssorts = CountAssortItems(assembly, assortsPath);
 
         await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly, itemsPath);
-        await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, assortsPath);
+        //await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, assortsPath);
+        
+        AddTrader(tradersPath);
 
         HyperLethalLog.LoadedSuccessfully(version, loadedItems, loadedAssorts);
     }
@@ -101,5 +115,24 @@ public sealed class HyperLethalBootstrapService(
         }
 
         return count;
+    }
+
+    public void AddTrader(string path)
+    {
+        var traderImage = Path.Combine(path, "db/trader/keres.jpg");
+        var traderBase = modHelper.GetJsonDataFromFile<TraderBase>(path, "db/trader/base.json");
+        
+        imageRouter.AddRoute(traderBase.Avatar.Replace(".jpg", ""), traderImage);
+        hyperLethalTraderService.SetTraderUpdateTime(_traderConfig, traderBase, timeUtil.GetHoursAsSeconds(1), timeUtil.GetHoursAsSeconds(2));
+
+        _ragfairConfig.Traders.TryAdd(traderBase.Id, true);
+        
+        hyperLethalTraderService.AddTraderToDatabase(traderBase);
+        
+        hyperLethalTraderService.AddLocales(traderBase, "Keres", "Keres is a former engineer turned underground dealer. Supplier for experimental items that were never meant to leave the testing range.");
+
+        var assorts = modHelper.GetJsonDataFromFile<TraderAssort>(path, "db/trader/assorts.json");
+        
+        hyperLethalTraderService.OverwriteAssort(traderBase.Id, assorts);
     }
 }

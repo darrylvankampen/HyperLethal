@@ -1,0 +1,188 @@
+{
+  "items": [
+    {
+      "_id": "660000000000000000000101",
+      "_tpl": "660000000000000000000001",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000102",
+      "_tpl": "660000000000000000000002",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000103",
+      "_tpl": "660000000000000000000003",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000104",
+      "_tpl": "660000000000000000000004",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000105",
+      "_tpl": "660000000000000000000005",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000106",
+      "_tpl": "660000000000000000000006",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000107",
+      "_tpl": "660000000000000000000007",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000108",
+      "_tpl": "660000000000000000000008",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    },
+    {
+      "_id": "660000000000000000000109",
+      "_tpl": "660000000000000000000010",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": true,
+        "StackObjectsCount": 999999,
+        "BuyRestrictionMax": 0
+      }
+    }
+  ],
+  "barter_scheme": {
+    "660000000000000000000101": [
+      [
+        {
+          "count": 1500,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000102": [
+      [
+        {
+          "count": 1500,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000103": [
+      [
+        {
+          "count": 1800,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000104": [
+      [
+        {
+          "count": 1700,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000105": [
+      [
+        {
+          "count": 1300,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000106": [
+      [
+        {
+          "count": 1600,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000107": [
+      [
+        {
+          "count": 2100,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000108": [
+      [
+        {
+          "count": 2200,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "660000000000000000000109": [
+      [
+        {
+          "count": 12000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ]
+  },
+  "loyal_level_items": {
+    "660000000000000000000101": 1,
+    "660000000000000000000102": 1,
+    "660000000000000000000103": 1,
+    "660000000000000000000104": 1,
+    "660000000000000000000105": 1,
+    "660000000000000000000106": 1,
+    "660000000000000000000107": 1,
+    "660000000000000000000108": 1,
+    "660000000000000000000109": 1
+  }
+}
