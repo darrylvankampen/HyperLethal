@@ -2,6 +2,7 @@ using HyperLethal.Utilities;
 using SPTarkov.DI.Annotations;
 using System.Reflection;
 using System.Text.Json;
+using HyperLethal.Config;
 using SPTarkov.Server.Core.Helpers;
 using SPTarkov.Server.Core.Models.Eft.Common.Tables;
 using SPTarkov.Server.Core.Models.Eft.ItemEvent;
@@ -16,15 +17,13 @@ namespace HyperLethal.Services;
 
 [Injectable]
 public sealed class HyperLethalBootstrapService(
-    WTTServerCommonLib.WTTServerCommonLib wttCommon, ModHelper modHelper, ImageRouter imageRouter, ConfigServer configServer, TimeUtil timeUtil, HyperLethalTraderService hyperLethalTraderService)
+    WTTServerCommonLib.WTTServerCommonLib wttCommon, ModHelper modHelper, ImageRouter imageRouter, ConfigServer configServer, TimeUtil timeUtil, HyperLethalTraderService hyperLethalTraderService, HyperLethalConfigService config)
 {
     private readonly TraderConfig _traderConfig = configServer.GetConfig<TraderConfig>();
     private readonly RagfairConfig _ragfairConfig = configServer.GetConfig<RagfairConfig>();
     
     public async Task Initialize()
     {
-        HyperLethalLog.Info("Init", "Starting mod initialization.");
-
         var assembly = Assembly.GetExecutingAssembly();
         var itemsPath = Path.Join("db", "items");
         var assortsPath = Path.Join("db", "assorts");
@@ -34,10 +33,15 @@ public sealed class HyperLethalBootstrapService(
         var loadedAssorts = CountAssortItems(assembly, assortsPath);
 
         await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly, itemsPath);
-        //await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, assortsPath);
-        
-        AddTrader(tradersPath);
 
+        if (config.GetConfig().EnableTrader)
+        {
+            AddTrader(tradersPath);
+        }
+        else
+        {
+            await wttCommon.CustomAssortSchemeService.CreateCustomAssortSchemes(assembly, assortsPath);
+        }
         HyperLethalLog.LoadedSuccessfully(version, loadedItems, loadedAssorts);
     }
 
@@ -119,8 +123,19 @@ public sealed class HyperLethalBootstrapService(
 
     public void AddTrader(string path)
     {
-        var traderImage = Path.Combine(path, "db/trader/keres.jpg");
+        string traderImage;
         var traderBase = modHelper.GetJsonDataFromFile<TraderBase>(path, "db/trader/base.json");
+        if (config.GetConfig().ReplaceTraderImage)
+        {
+            HyperLethalLog.Info("Trader", "Replaced the trader image with a cute little cat");
+            traderImage = Path.Combine(path, "db/trader/cutecat.jpg");
+            traderBase.Avatar = "/files/trader/avatar/cutecat.jpg";
+        }
+        else
+        {
+            traderImage = Path.Combine(path, "db/trader/keres.jpg");
+        }
+        
         
         imageRouter.AddRoute(traderBase.Avatar.Replace(".jpg", ""), traderImage);
         hyperLethalTraderService.SetTraderUpdateTime(_traderConfig, traderBase, timeUtil.GetHoursAsSeconds(1), timeUtil.GetHoursAsSeconds(2));
