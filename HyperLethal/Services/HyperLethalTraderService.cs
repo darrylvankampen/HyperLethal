@@ -11,8 +11,9 @@ namespace HyperLethal.Services;
 
 [Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 1)]
 public class HyperLethalTraderService
-(DatabaseService databaseService, ICloner cloner, LocaleService localeService)
+(DatabaseService databaseService, ICloner cloner)
 {
+    
     public void SetTraderUpdateTime(TraderConfig traderConfig, TraderBase baseTrader, int refreshTimeMin, int refreshTimeMax)
     {
         var traderRefreshRecord = new UpdateTime()
@@ -23,41 +24,49 @@ public class HyperLethalTraderService
         traderConfig.UpdateTime.Add(traderRefreshRecord);
     }
 
-    public void AddTraderToDatabase(TraderBase trader)
+    public void AddTraderToDatabase(TraderBase baseTrader)
     {
-        var emptyAssorts = new TraderAssort
-        {
-            Items = [],
-            BarterScheme = new Dictionary<MongoId, List<List<BarterScheme>>>(),
-            LoyalLevelItems = new Dictionary<MongoId, int>()
-        };
-
         var traderData = new Trader
         {
-            Assort = emptyAssorts,
-            Base = cloner.Clone(trader),
-            QuestAssort = new()
-            {
-                { "Started", new() },
-                { "Success", new() },
-                { "Fail", new() }
-            },
+            Assort = CreateNewTraderAssort(),
+            Base = cloner.Clone(baseTrader),
+            QuestAssort = CreateNewQuestAssort(),
             Dialogue = []
         };
 
-        if (!databaseService.GetTables().Traders.TryAdd(trader.Id, traderData))
+        if (!databaseService.GetTables().Traders.TryAdd(baseTrader.Id, traderData))
         {
             HyperLethalLog.Error("Trader", "Failed to add trader!");
         }
     }
 
-    public void AddLocales(TraderBase traderBase, string firstName, string desc)
+    private static TraderAssort CreateNewTraderAssort()
+    {
+        return new TraderAssort()
+        {
+            Items = [],
+            BarterScheme = new Dictionary<MongoId, List<List<BarterScheme>>>(),
+            LoyalLevelItems = new Dictionary<MongoId, int>()
+        };
+    }
+    
+    private static Dictionary<string, Dictionary<MongoId, MongoId>> CreateNewQuestAssort()
+    {
+        return new()
+        {
+            { "Started", new() },
+            { "Success", new() },
+            { "Fail", new() }
+        };
+    }
+
+    public void AddLocales(TraderBase baseTrader, string firstName, string desc)
     {
         var locales = databaseService.GetTables().Locales.Global;
-        var newTraderId = traderBase.Id;
-        var fullName = traderBase.Name;
-        var nickName =  traderBase.Nickname;
-        var location =  traderBase.Location;
+        var newTraderId = baseTrader.Id;
+        var fullName = baseTrader.Name;
+        var nickName =  baseTrader.Nickname;
+        var location =  baseTrader.Location;
 
         foreach (var (key, value) in locales)
         {
@@ -73,14 +82,14 @@ public class HyperLethalTraderService
         }
     }
 
-    public void OverwriteAssort(string TraderId, TraderAssort assorts)
+    public void OverwriteAssort(string traderId, TraderAssort assorts)
     {
-        if (!databaseService.GetTables().Traders.TryGetValue(TraderId, out var traderToEdit))
+        if (!databaseService.GetTables().Traders.TryGetValue(traderId, out var traderToEdit))
         {
-            HyperLethalLog.Error("Trader", $"Cannot find trader {TraderId}!");
+            HyperLethalLog.Error("Trader", $"Cannot find trader {traderId}!");
             return;
         }
-        HyperLethalLog.Success("Trader", $"Trader {TraderId} updated!");
+        HyperLethalLog.Success("Trader", $"Trader {traderId} updated!");
         traderToEdit.Assort = assorts;
     }
 }
