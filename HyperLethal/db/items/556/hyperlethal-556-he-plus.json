@@ -4,19 +4,18 @@
     "parentId": "5485a8684bdc2da71d8b4567",
     "handbookParentId": "5b47574386f77428ca22b33b",
     "overrideProperties": {
-      "ammoCaliber": "Caliber556x45NATO",
       "Caliber": "Caliber556x45NATO",
       "Damage": 210,
       "PenetrationPower": 58,
       "ArmorDamage": 72,
-      "FragmentationChance": 0.85,
+      "FragmentationChance": 0.99,
       "InitialSpeed": 930,
-      "ExplosionStrength": 15,
+      "ExplosionStrength": 30,
       "ExplosionType": "smallgrenade_expl",
-      "FuzeArmTimeSec": 0.2,
+      "FuzeArmTimeSec": 0,
       "MinExplosionDistance": 1,
       "MaxExplosionDistance": 4,
-      "AmmoType": "grenade",
+      "ammoType": "grenade",
       "HasGrenaderComponent": true
     },
     "locales": {
