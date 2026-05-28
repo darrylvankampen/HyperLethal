@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber556x45NATO",
       "Caliber": "Caliber556x45NATO",
-      "Damage": 252,
-      "PenetrationPower": 102,
-      "ArmorDamage": 98,
-      "FragmentationChance": 0.93,
-      "InitialSpeed": 1525
+      "Damage": 224,
+      "PenetrationPower": 90,
+      "ArmorDamage": 85,
+      "FragmentationChance": 0.74,
+      "InitialSpeed": 980
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "Built in a garage with zero regard for treaties, the HyperLethal M995+ turns cover into a suggestion and bad decisions into instant lessons."
       }
     },
-    "fleaPriceRoubles": 1500,
-    "handbookPriceRoubles": 1500,
+    "fleaPriceRoubles": 1750,
+    "handbookPriceRoubles": 1750,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

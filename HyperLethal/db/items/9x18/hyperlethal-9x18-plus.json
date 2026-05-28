@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber9x18PM",
       "Caliber": "Caliber9x18PM",
-      "Damage": 214,
-      "PenetrationPower": 82,
-      "ArmorDamage": 87,
-      "FragmentationChance": 0.86,
-      "InitialSpeed": 1180
+      "Damage": 170,
+      "PenetrationPower": 58,
+      "ArmorDamage": 62,
+      "FragmentationChance": 0.68,
+      "InitialSpeed": 620
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "A vicious 9x18 round that turns compact sidearms into pocket railguns."
       }
     },
-    "fleaPriceRoubles": 1300,
-    "handbookPriceRoubles": 1300,
+    "fleaPriceRoubles": 900,
+    "handbookPriceRoubles": 900,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

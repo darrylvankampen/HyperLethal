@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber762x51",
       "Caliber": "Caliber762x51",
-      "Damage": 268,
-      "PenetrationPower": 108,
-      "ArmorDamage": 100,
-      "FragmentationChance": 0.85,
-      "InitialSpeed": 1385
+      "Damage": 248,
+      "PenetrationPower": 100,
+      "ArmorDamage": 96,
+      "FragmentationChance": 0.7,
+      "InitialSpeed": 900
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "A savage 7.62x51 NATO load built for ruthless long-range armor deletion."
       }
     },
-    "fleaPriceRoubles": 2100,
-    "handbookPriceRoubles": 2100,
+    "fleaPriceRoubles": 2300,
+    "handbookPriceRoubles": 2300,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

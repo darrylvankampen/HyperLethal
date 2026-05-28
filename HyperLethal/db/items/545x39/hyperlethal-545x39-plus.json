@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber545x39",
       "Caliber": "Caliber545x39",
-      "Damage": 244,
-      "PenetrationPower": 99,
-      "ArmorDamage": 96,
-      "FragmentationChance": 0.94,
-      "InitialSpeed": 1540
+      "Damage": 218,
+      "PenetrationPower": 86,
+      "ArmorDamage": 82,
+      "FragmentationChance": 0.76,
+      "InitialSpeed": 960
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "A screaming 5.45x39 round built to punch through armor like it owes you money."
       }
     },
-    "fleaPriceRoubles": 1700,
-    "handbookPriceRoubles": 1700,
+    "fleaPriceRoubles": 1650,
+    "handbookPriceRoubles": 1650,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

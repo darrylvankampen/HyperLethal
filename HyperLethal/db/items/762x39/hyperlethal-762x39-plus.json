@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber762x39",
       "Caliber": "Caliber762x39",
-      "Damage": 257,
-      "PenetrationPower": 101,
-      "ArmorDamage": 99,
-      "FragmentationChance": 0.91,
-      "InitialSpeed": 1460
+      "Damage": 236,
+      "PenetrationPower": 92,
+      "ArmorDamage": 90,
+      "FragmentationChance": 0.73,
+      "InitialSpeed": 840
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "A brutal 7.62x39 round tuned for extreme penetration and stopping power."
       }
     },
-    "fleaPriceRoubles": 1800,
-    "handbookPriceRoubles": 1800,
+    "fleaPriceRoubles": 1900,
+    "handbookPriceRoubles": 1900,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

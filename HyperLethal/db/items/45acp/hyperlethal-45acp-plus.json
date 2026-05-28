@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber1143x23ACP",
       "Caliber": "Caliber1143x23ACP",
-      "Damage": 247,
-      "PenetrationPower": 97,
-      "ArmorDamage": 94,
-      "FragmentationChance": 0.87,
-      "InitialSpeed": 1125
+      "Damage": 200,
+      "PenetrationPower": 60,
+      "ArmorDamage": 70,
+      "FragmentationChance": 0.69,
+      "InitialSpeed": 520
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "Heavy .45 ACP pressure-loaded into a brutal close-range armor chewer."
       }
     },
-    "fleaPriceRoubles": 1600,
-    "handbookPriceRoubles": 1600,
+    "fleaPriceRoubles": 1100,
+    "handbookPriceRoubles": 1100,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

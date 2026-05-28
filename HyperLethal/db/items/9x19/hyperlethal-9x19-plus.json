@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber9x19PARA",
       "Caliber": "Caliber9x19PARA",
-      "Damage": 238,
-      "PenetrationPower": 96,
-      "ArmorDamage": 92,
-      "FragmentationChance": 0.88,
-      "InitialSpeed": 1410
+      "Damage": 182,
+      "PenetrationPower": 64,
+      "ArmorDamage": 68,
+      "FragmentationChance": 0.7,
+      "InitialSpeed": 700
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "Overclocked 9x19 with absurd punch and penetration for close-range chaos."
       }
     },
-    "fleaPriceRoubles": 1500,
-    "handbookPriceRoubles": 1500,
+    "fleaPriceRoubles": 1050,
+    "handbookPriceRoubles": 1050,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [

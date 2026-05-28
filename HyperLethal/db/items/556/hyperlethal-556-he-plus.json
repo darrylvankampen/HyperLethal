@@ -5,11 +5,11 @@
     "handbookParentId": "5b47574386f77428ca22b33b",
     "overrideProperties": {
       "Caliber": "Caliber556x45NATO",
-      "Damage": 210,
-      "PenetrationPower": 58,
-      "ArmorDamage": 72,
+      "Damage": 165,
+      "PenetrationPower": 35,
+      "ArmorDamage": 55,
       "FragmentationChance": 0.99,
-      "InitialSpeed": 930,
+      "InitialSpeed": 700,
       "ExplosionStrength": 30,
       "ExplosionType": "smallgrenade_expl",
       "FuzeArmTimeSec": 0,
@@ -25,8 +25,8 @@
         "description": "Experimental 5.56 round tuned for explosive effect."
       }
     },
-    "fleaPriceRoubles": 12000,
-    "handbookPriceRoubles": 12000,
+    "fleaPriceRoubles": 9000,
+    "handbookPriceRoubles": 9000,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 2,
     "addCaliberToAllCloneLocations": true

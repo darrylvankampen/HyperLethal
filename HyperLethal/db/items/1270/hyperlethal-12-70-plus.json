@@ -6,11 +6,11 @@
     "overrideProperties": {
       "ammoCaliber": "Caliber12g",
       "Caliber": "Caliber12g",
-      "Damage": 335,
-      "PenetrationPower": 88,
-      "ArmorDamage": 100,
-      "FragmentationChance": 0.77,
-      "InitialSpeed": 930
+      "Damage": 270,
+      "PenetrationPower": 70,
+      "ArmorDamage": 86,
+      "FragmentationChance": 0.72,
+      "InitialSpeed": 620
     },
     "locales": {
       "en": {
@@ -19,8 +19,8 @@
         "description": "An overpressured 12/70 slug that hits like a sledgehammer through armor and flesh."
       }
     },
-    "fleaPriceRoubles": 2200,
-    "handbookPriceRoubles": 2200,
+    "fleaPriceRoubles": 1800,
+    "handbookPriceRoubles": 1800,
     "addtoStaticAmmo": true,
     "staticAmmoProbability": 5,
     "staticLootContainers": [
