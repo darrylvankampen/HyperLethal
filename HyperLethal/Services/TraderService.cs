@@ -10,7 +10,7 @@ using SPTarkov.Server.Core.Utils.Cloners;
 namespace HyperLethal.Services;
 
 [Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 1)]
-public class HyperLethalTraderService
+public class TraderService
 (DatabaseService databaseService, ICloner cloner)
 {
     
@@ -36,7 +36,7 @@ public class HyperLethalTraderService
 
         if (!databaseService.GetTables().Traders.TryAdd(baseTrader.Id, traderData))
         {
-            HyperLethalLog.Error("Trader", "Failed to add trader!");
+            LogService.Error("Trader", "Failed to add trader!");
         }
     }
 
@@ -86,10 +86,10 @@ public class HyperLethalTraderService
     {
         if (!databaseService.GetTables().Traders.TryGetValue(traderId, out var traderToEdit))
         {
-            HyperLethalLog.Error("Trader", $"Cannot find trader {traderId}!");
+            LogService.Error("Trader", $"Cannot find trader {traderId}!");
             return;
         }
-        HyperLethalLog.Success("Trader", $"Trader {traderId} updated!");
+        LogService.Success("Trader", $"Trader {traderId} updated!");
         traderToEdit.Assort = assorts;
     }
 }

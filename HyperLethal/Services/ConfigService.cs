@@ -7,12 +7,12 @@ using SPTarkov.Server.Core.Helpers;
 namespace HyperLethal.Services;
 
 [Injectable]
-public sealed class HyperLethalConfigService
+public sealed class ConfigService
 (ModHelper modHelper)
 {
-    private static HLConfig? _cachedConfig;
+    private static Config.Config? _cachedConfig;
 
-    public HLConfig GetConfig()
+    public Config.Config GetConfig()
     {
         if (_cachedConfig is not null)
         {
@@ -20,7 +20,7 @@ public sealed class HyperLethalConfigService
         }
         
         var path = modHelper.GetAbsolutePathToModFolder(Assembly.GetExecutingAssembly());
-        _cachedConfig = modHelper.GetJsonDataFromFile<HLConfig>($"{path}/config/", "config.json");
+        _cachedConfig = modHelper.GetJsonDataFromFile<Config.Config>($"{path}/config/", "config.json");
         return _cachedConfig;
     }
 }

@@ -27,7 +27,7 @@ public record ModMetadata : AbstractModMetadata
 
 [Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 2)]
 public class HyperLethal(
-    HyperLethalBootstrapService bootstrapService
+    BootstrapService bootstrapService
 ) : IOnLoad
 {
     public Task OnLoad()
