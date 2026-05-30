@@ -1,0 +1,33 @@
+{
+  "660000000000000000000015": {
+    "itemTplToClone": "5e023d48186a883be655e551",
+    "parentId": "5485a8684bdc2da71d8b4567",
+    "handbookParentId": "5b47574386f77428ca22b33b",
+    "overrideProperties": {
+      "Caliber": "Caliber762x54R",
+      "Damage": 260,
+      "PenetrationPower": 108,
+      "ArmorDamage": 100,
+      "FragmentationChance": 0.67,
+      "InitialSpeed": 920
+    },
+    "locales": {
+      "en": {
+        "name": "HyperLethal 7.62x54R+",
+        "shortName": "HL-54R+",
+        "description": "An overcharged 7.62x54R load engineered for devastating long-range armor penetration."
+      }
+    },
+    "fleaPriceRoubles": 2600,
+    "handbookPriceRoubles": 2600,
+    "addtoStaticAmmo": true,
+    "staticAmmoProbability": 5,
+    "staticLootContainers": [
+      {
+        "containerName": "LOOTCONTAINER_DEAD_SCAV",
+        "probability": 10
+      }
+    ],
+    "addCaliberToAllCloneLocations": true
+  }
+}
